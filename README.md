@@ -24,7 +24,8 @@ This project contains HDL designs, MATLAB simulations, and presentations for var
 
 - MATLAB Simulations: Open and run the .m files in MATLAB to observe the behavior of master-slave flip-flop circuits.
 
-# Presentations: The PowerPoint presentations (.pptx files) provide visual aids for understanding circuit diagrams and logic design techniques.
+# Presentations: 
+- The PowerPoint presentations (.pptx files) provide visual aids for understanding circuit diagrams and logic design techniques.
 
 # Purpose:-
 
