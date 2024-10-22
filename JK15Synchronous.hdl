@@ -1,0 +1,30 @@
+// This file is part of www.nand2tetris.org
+// and the book "The Elements of Computing Systems"
+// by Nisan and Schocken, MIT Press.
+// File name: projects/01/JK15Synchronous.hdl
+
+ /**
+ * T gate:
+ * out = 1 if (a == 1 or b == 1)
+ *       0 otherwise
+ */
+
+CHIP JK15Synchronous {
+    
+    OUT out[4];
+
+    PARTS:
+    // Put your code here:
+
+And(a=J3,b=R3,out=J4);
+JK(J=J4,K=J4,out=Q4,notout=R4,out=out[3]);
+
+And(a=R1,b=R2,out=J3);
+JK(J=J3,K=J3,out=Q3,notout=R3,out=out[2]);
+
+JK(J=R1,K=R1,out=Q2,notout=R2,out=out[1]);
+
+JK(J=true,K=true,out=Q1,notout=R1,out=out[0]);
+
+
+}

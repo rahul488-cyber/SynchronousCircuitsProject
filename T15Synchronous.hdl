@@ -1,0 +1,32 @@
+// This file is part of www.nand2tetris.org
+// and the book "The Elements of Computing Systems"
+// by Nisan and Schocken, MIT Press.
+// File name: projects/01/T15Synchronous.hdl
+
+ /**
+ * T gate:
+ * out = 1 if (a == 1 or b == 1)
+ *       0 otherwise
+ */
+
+CHIP T15Synchronous {
+    
+    OUT out[4];
+
+    PARTS:
+    // Put your code here:
+And(a=T3,b=R3,out=T4);
+T(Tin=T4,out=Q4,notout=R4,out=out[3]);
+
+And(a=R2,b=R1,out=T3);
+T(Tin=T3,out=Q3,notout=R3,out=out[2]);
+
+
+T(Tin=R1,out=Q2,notout=R2,out=out[1]);
+
+T(Tin=true,out=Q1,notout=R1,out=out[0]);
+
+
+
+
+}

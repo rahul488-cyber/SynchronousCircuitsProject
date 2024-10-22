@@ -1,0 +1,53 @@
+// This file is part of www.nand2tetris.org
+// and the book "The Elements of Computing Systems"
+// by Nisan and Schocken, MIT Press.
+// File name: projects/01/D15Synchronous.hdl
+
+ /**
+ * T gate:
+ * out = 1 if (a == 1 or b == 1)
+ *       0 otherwise
+ */
+
+CHIP D15Synchronous {
+    IN D;
+    OUT out[4];
+
+    PARTS:
+    // Put your code here:
+
+DFF(in=R1,out=out[0],out=Q1);
+Not(in=Q1,out=R1);
+
+
+And(a=R1,b=R2,out=o1);
+And(a=Q1,b=Q2,out=o2);
+Or(a=o1,b=o2,out=D2);
+DFF(in=D2,out=out[1],out=Q2);
+Not(in=Q2,out=R2);
+
+
+
+And(a=Q3,b=Q2,out=X1);
+And(a=Q1,b=Q3,out=X2);
+And(a=R3,b=R2,out=Y1);
+And(a=Y1,b=R1,out=X3);
+Or(a=X1,b=X2,out=Z1);
+Or(a=Z1,b=X3,out=D3);
+DFF(in=D3,out=out[2],out=Q3);
+Not(in=Q3,out=R3);
+
+
+And(a=Q4,b=Q2,out=F1);
+And(a=Q1,b=Q4,out=F2);
+And(a=Q3,b=Q4,out=G1);
+And(a=R2,b=G1,out=F3);
+And(a=R3,b=R4,out=G3);
+And(a=R2,b=R1,out=G4);
+And(a=G3,b=G4,out=F4);
+Or(a=F1,b=F2,out=J1);
+Or(a=F3,b=F4,out=J2);
+Or(a=J1,b=J2,out=D4);
+DFF(in=D4,out=out[3],out=Q4);
+Not(in=Q4,out=R4);
+}
